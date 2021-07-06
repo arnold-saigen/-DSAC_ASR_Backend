@@ -16,7 +16,7 @@ This codebase contains only the core code and logic that is required to host the
 * Docker
 * Python
 * Prerequisite knowledge about docker containers and the AWS stack
-* AWS IAM roles with the following permissions
+* AWS IAM roles
 
 
 ### Installing
@@ -35,6 +35,47 @@ sudo apt-get install docker.io
 git clone https://github.com/arnold-saigen/DSAC_ASR_Backend.git
 ```
 
+### Create your IAM policies and IAM role
+You will need to create a AWS IAM policy and role for your service. This role is used to manage and access permisions for the microservices that are used.
+See the following link to get started with IAM:
+* [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
+* You will need to create an IAM policy with similar permissions to the following:
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "elasticfilesystem:*",
+                "application-autoscaling:*",
+                "s3:*",
+                "cloudwatch:DeleteAlarms",
+                "logs:*",
+                "sns:CreateTopic",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics",
+                "sns:List*",
+                "cloudwatch:PutMetricAlarm",
+                "ecs:UpdateService",
+                "cloudwatch:DescribeAlarmHistory",
+                "iam:CreateServiceLinkedRole",
+                "sns:Get*",
+                "cloudwatch:EnableAlarmActions",
+                "cloudwatch:DisableAlarmActions",
+                "cloudwatch:DescribeAlarmsForMetric",
+                "cloudwatch:DescribeAlarms",
+                "ecs:*",
+                "ecr:*",
+                "ecs:DescribeServices",
+                "sns:Subscribe"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ### Building and publishing container
 
@@ -55,7 +96,7 @@ git clone https://github.com/arnold-saigen/DSAC_ASR_Backend.git
 
 You will need to create a Elastic File system which you will be using to store the ASR models. The file system is mounted to the containers at runtime.
 See the following link to get started with EFS:
-* [efs](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html)
+* [EFS](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html)
 
 
 ### Setting up ECS Fargate cluster and registering a task definition
