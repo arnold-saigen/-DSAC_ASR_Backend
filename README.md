@@ -289,4 +289,4 @@ This project is licensed under the [Creative Commons Attribution 4.0 License](ht
 
 ## References
 
-[1](https://github.com/fdmcgregor/SouthAfricanSpeechAnalyticsWebInterface)
+1 (https://github.com/fdmcgregor/SouthAfricanSpeechAnalyticsWebInterface)
