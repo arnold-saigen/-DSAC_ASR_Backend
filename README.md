@@ -8,6 +8,7 @@ This codebase contains only the core code and logic that is required to host the
 
 ## Getting Started
 
+
 ### Dependencies
 
 * An AWS account
@@ -16,6 +17,7 @@ This codebase contains only the core code and logic that is required to host the
 * Python
 * Prerequisite knowledge about docker containers and the AWS stack
 * AWS IAM roles with the following permissions
+
 
 ### Installing
 
@@ -33,6 +35,7 @@ sudo apt-get install docker.io
 git clone https://github.com/arnold-saigen/DSAC_ASR_Backend.git
 ```
 
+
 ### Building and publishing container
 
 * Go to docker context and build the container
@@ -47,10 +50,15 @@ git clone https://github.com/arnold-saigen/DSAC_ASR_Backend.git
 >> sudo docker push <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
 ```
 
-### Setting up an elastic file system to host your models
-You will need to create a 
 
-### Setting up AWS ECS and Fargate
+### Setting up an elastic file system (EFS) to host your models
+
+You will need to create a Elastic File system which you will be using to store the ASR models. The file system is mounted to the containers at runtime.
+See the following link to get started with EFS:
+* [efs](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html)
+
+
+### Setting up ECS Fargate cluster and registering a task definition
 
 * Create a ECS Fargate cluster
 ```
