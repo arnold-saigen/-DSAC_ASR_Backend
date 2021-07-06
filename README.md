@@ -37,14 +37,14 @@ git clone https://github.com/arnold-saigen/DSAC_ASR_Backend.git
 
 * Go to docker context and build the container
 ```
-cd ./DSAC_ASR_BACKEND/docker_context
-sudo docker build -t dsac_asr_backend ./
+>> cd ./DSAC_ASR_BACKEND/docker_context
+>> sudo docker build -t dsac_asr_backend ./
 ```
 * After building he image, upload the docker image to ECR
 ```
-aws ecr get-login-password --region <your region> | sudo docker login --username AWS --password-stdin <your aws account ID>.dkr.ecr.<your region>.amazonaws.com
-sudo docker tag dsac_asr_backend:latest <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
-sudo docker push <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
+>> aws ecr get-login-password --region <your region> | sudo docker login --username AWS --password-stdin <your aws account ID>.dkr.ecr.<your region>.amazonaws.com
+>> sudo docker tag dsac_asr_backend:latest <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
+>> sudo docker push <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
 ```
 
 ## Help
