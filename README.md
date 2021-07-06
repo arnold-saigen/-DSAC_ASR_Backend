@@ -286,7 +286,7 @@ See the following link to get started with EFS:
 >> aws ecs register-task-definition --cli-input-json file://$HOME/tasks/fargate-task.json
 ```
 * For more information follow the following link:
-[Setting up a cluster and task definition] (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html)
+[Setting up a cluster and task definition](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html)
 
 
 
