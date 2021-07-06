@@ -10,14 +10,21 @@ This codebase contains only the core code and logic that is required to host the
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* An AWS account
+* aws-cli
+* Docker
+* Python
+* Prerequisite knowledge about docker containers and the AWS stack
 
 ### Installing
 
-* How/where to download your program
+* After creating an aws account install the aws-cli
+```
+sudo apt-get install aws
+```
 * Any modifications needed to be made to files/folders
-* ```
+* 
+```
 command to run if program contains helper info
 ```
 
