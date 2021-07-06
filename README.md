@@ -38,7 +38,7 @@ git clone https://github.com/arnold-saigen/DSAC_ASR_Backend.git
 ### Create your IAM policies and IAM role
 You will need to create a AWS IAM policy and role for your service. This role is used to manage and access permisions for the microservices that are used.
 See the following link to get started with IAM:
-* [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
+* [Getting started with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
 * You will need to create an IAM policy with similar permissions to the following:
 ```
 {
@@ -96,7 +96,7 @@ See the following link to get started with IAM:
 
 You will need to create a Elastic File system which you will be using to store the ASR models. The file system is mounted to the containers at runtime.
 See the following link to get started with EFS:
-* [EFS](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html)
+* [Getting started with EFS](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html)
 
 
 ### Setting up ECS Fargate cluster and registering a task definition
@@ -289,6 +289,10 @@ See the following link to get started with EFS:
 [Setting up a cluster and task definition](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html)
 
 
+### Creating a lambda function
+You will need to create a Lambda function which will trigger each time an API request is made. This lambda functions serves to grab the required and optional parameters from the POST headers, verify the API key and check if all parameters are present. If all checks are passed, the Lambda function will start a Fargate task to do the decoding.
+See the following link to get started with Lambda:
+* [Getting started with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
 
 ## License
 
