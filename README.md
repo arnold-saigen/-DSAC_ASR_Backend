@@ -15,25 +15,36 @@ This codebase contains only the core code and logic that is required to host the
 * Docker
 * Python
 * Prerequisite knowledge about docker containers and the AWS stack
+* AWS IAM roles with the following permissions
 
 ### Installing
 
+For Debian/Ubuntu:
 * After creating an aws account install the aws-cli
 ```
 sudo apt-get install aws
 ```
-* Any modifications needed to be made to files/folders
-* 
+* Install Docker
 ```
-command to run if program contains helper info
+sudo apt-get install docker.io
+```
+* Clone this repo
+```
+git clone https://github.com/arnold-saigen/DSAC_ASR_Backend.git
 ```
 
-### Executing program
+### Building and publishing container
 
-* How to run the program
-* Step-by-step bullets
+* Go to docker context and build the container
 ```
-code blocks for commands
+cd ./DSAC_ASR_BACKEND/docker_context
+sudo docker build -t dsac_asr_backend ./
+```
+* After building he image, upload the docker image to ECR
+```
+aws ecr get-login-password --region <your region> | sudo docker login --username AWS --password-stdin <your aws account ID>.dkr.ecr.<your region>.amazonaws.com
+sudo docker tag dsac_asr_backend:latest <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
+sudo docker push <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
 ```
 
 ## Help
