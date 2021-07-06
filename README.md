@@ -101,7 +101,7 @@ See the following link to get started with EFS:
 
 ### Setting up ECS Fargate cluster and registering a task definition
 
-* Create a ECS Fargate cluster
+* Create your own cluster with a unique name with the following command:
 ```
 >> aws ecs create-cluster --cluster-name fargate-cluster
 ```
@@ -281,6 +281,13 @@ See the following link to get started with EFS:
   ]
 }
 ```
+* Use JSON config file to create task definition
+```
+>> aws ecs register-task-definition --cli-input-json file://$HOME/tasks/fargate-task.json
+```
+* For more information follow the following link:
+[Setting up a cluster and task definition] (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html)
+
 
 
 ## License
