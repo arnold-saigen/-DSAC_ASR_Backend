@@ -8,7 +8,6 @@ This codebase contains only the core code and logic that is required to host the
 
 ## Getting Started
 
-
 ### Dependencies
 
 * An AWS account
@@ -17,7 +16,6 @@ This codebase contains only the core code and logic that is required to host the
 * Python
 * Prerequisite knowledge about docker containers and the AWS stack
 * AWS IAM roles
-
 
 ### Installing
 
@@ -91,13 +89,11 @@ See the following link to get started with IAM:
 >> sudo docker push <your aws account ID>.dkr.ecr.<your region>.amazonaws.com/dsac_asr_backend:latest
 ```
 
-
 ### Setting up an elastic file system (EFS) to host your models
 
 You will need to create a Elastic File system which you will be using to store the ASR models. The file system is mounted to the containers at runtime.
 See the following link to get started with EFS:
 * [Getting started with EFS](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html)
-
 
 ### Setting up ECS Fargate cluster and registering a task definition
 
@@ -288,11 +284,15 @@ See the following link to get started with EFS:
 * For more information follow the following link:
 [Setting up a cluster and task definition](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html)
 
-
 ### Creating a lambda function
 You will need to create a Lambda function which will trigger each time an API request is made. This lambda functions serves to grab the required and optional parameters from the POST headers, verify the API key and check if all parameters are present. If all checks are passed, the Lambda function will start a Fargate task to do the decoding.
 See the following link to get started with Lambda:
 * [Getting started with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
+
+### Creating an API Gateway and setting the Lambda trigger
+You will need to create a API Gateway which serves as a Flask API and handels all HTTP traffic to the system.
+See the following link to get started with API Gateway for Lambda:
+* [Using AWS Lambda with Amazon API Gateway](https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html)
 
 ## License
 
@@ -300,4 +300,4 @@ This project is licensed under the [Creative Commons Attribution 4.0 License](ht
 
 ## References
 
-1) (https://github.com/fdmcgregor/SouthAfricanSpeechAnalyticsWebInterface)
+Front-end) (https://github.com/fdmcgregor/SouthAfricanSpeechAnalyticsWebInterface)
